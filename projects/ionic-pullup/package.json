@@ -13,8 +13,8 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^14.1.0",
-    "@angular/core": "^14.1.0",
+    "@angular/common": "^18.1.3",
+    "@angular/core": "^18.1.3",
     "hammerjs": "^2.0.8"
   }
 }
