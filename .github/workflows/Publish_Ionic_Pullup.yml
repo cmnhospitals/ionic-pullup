@@ -1,0 +1,26 @@
+name: 🚀 Publish Ionic Pullup
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+      - rc/**
+      - hfc/**
+    paths:
+      - package.json
+      - src/**
+
+concurrency:
+  group: Publish-ionic-pullup
+  cancel-in-progress: false
+    
+jobs:
+  Publish:
+    name: 🚀 Publish Ionic Pullup
+    uses: cmnhospitals/Reusable-Actions/.github/workflows/Publish_NPM_Package.yml@main
+    with:
+      project_title: CMNH Ionic Pullup
+      project_name: ionic-pullup
+      node_version: 20
+    secrets: inherit
