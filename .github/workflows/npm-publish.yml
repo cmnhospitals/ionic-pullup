@@ -1,35 +1,37 @@
-name: "Publish to MyGet"
+name: "🚀 Publish Ionic Pullup"
 on:
   workflow_dispatch:
   push:
     branches:
     - internal
+
 jobs:
   publish-npm:
     name: 🛠️ Build and Publish NPM Package
     runs-on: ubuntu-latest
     steps:
     - name: "🚚 Get Latest Code"
-      uses: actions/checkout@v3
-    - name: "⚙️ Use Node.js 16"
-      uses: actions/setup-node@v3
+      uses: actions/checkout@v4
+    - name: "⚙️ Use Node.js 20"
+      uses: actions/setup-node@v4
       with:
-        node-version: 16
+        node-version: 20
     - run: npm install
     - run: |
         sed -i -e 's/ionic-pullup/\@cmnhospitals\/ionic-pullup/g' projects/ionic-pullup/package.json
         sed -i -e 's/arielfaur/cmnhospitals/g' projects/ionic-pullup/package.json
     - run: |
         npm run build-lib
-        echo "//www.myget.org/F/cmnhospitalsnpm/npm/:_authToken=${{ secrets.NPM_TOKEN }}" >> ./dist/ionic-pullup/.npmrc
-    - uses: JS-DevTools/npm-publish@v1
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ./dist/ionic-pullup/.npmrc
+    - uses: JS-DevTools/npm-publish@v3
       id: npm-publish
       with:
-        token: ${{ secrets.NPM_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         package: ./dist/ionic-pullup/package.json
-        registry: https://www.myget.org/F/cmnhospitalsnpm/npm/
-    - uses: cmnhospitals/github-tag-action@2.0.0
+        registry: "https://npm.pkg.github.com"
+    - uses: cmnhospitals/github-tag-action@2.4.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CUSTOM_TAG: ${{ steps.npm-publish.outputs.version }}
         RELEASE_BRANCHES: internal
+        PREFIX: ionic-pullup

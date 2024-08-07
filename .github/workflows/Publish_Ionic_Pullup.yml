@@ -1,5 +1,3 @@
-name: 🚀 Publish Ionic Pullup
-
 on:
   workflow_dispatch:
   push:
