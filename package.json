@@ -1,7 +1,7 @@
 {
   "name": "ionic-pullup",
-  "description": "ionic-pullup for Angular 14/Ionic 6",
-  "version": "7.0.0-beta.1",
+  "description": "ionic-pullup for Angular 18/Ionic 8",
+  "version": "7.0.0-beta.2",
   "author": "Ariel Faur",
   "homepage": "https://github.com/arielfaur/ionic-pullup.git",
   "repository": {
