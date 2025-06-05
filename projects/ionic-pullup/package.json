@@ -1,6 +1,6 @@
 {
   "name": "ionic-pullup",
-  "version": "8.0.0-beta.1",
+  "version": "8.0.0-beta.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/arielfaur/ionic-pullup.git"
@@ -10,9 +10,9 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^18.1.3",
-    "@angular/core": "^18.1.3",
+    "@angular/common": "^19.2.14",
+    "@angular/core": "^19.2.14",
     "hammerjs": "^2.0.8",
-    "@types/hammerjs": "^2.0.36"
+    "@types/hammerjs": "^2.0.46"
   }
 }
