@@ -79,10 +79,11 @@ export interface DraggedOutputEvent {
 }
 
 @Component({
-  selector: 'lib-ionic-pullup',
-  templateUrl: './ionic-pullup.component.html',
-  styleUrls: ['./ionic-pullup.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'lib-ionic-pullup',
+    templateUrl: './ionic-pullup.component.html',
+    styleUrls: ['./ionic-pullup.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class IonicPullupComponent implements OnInit, AfterContentInit, OnChanges {
 
